@@ -1,15 +1,15 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Tag } from './features/model/tag';
-import { TagService } from './shared/service/tag.service';
+import { Tag } from '../model/tag';
+import { TagService } from '../../shared/service/tag.service';
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'tag-root',
+  templateUrl: './tag.component.html',
+  styleUrls: ['./tag.component.scss']
 })
-export class AppComponent implements OnInit{
+export class TagComponent implements OnInit{
  
 public tags: Tag[]=[]
 public tag: Tag|undefined;
@@ -18,7 +18,9 @@ constructor(private tagService:TagService) { }
  
 
 ngOnInit(): void {
-   
+
+    this.getTags();
+    
   }
 
 public getTags():void{
